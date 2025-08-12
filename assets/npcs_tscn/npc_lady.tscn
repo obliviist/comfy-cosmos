@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/asset_anims/cat_lounge.tres" type="Animation" id=1]
+[ext_resource path="res://assets/npcs_tscn/npc.gd" type="Script" id=2]
+[ext_resource path="res://assets_raw/cc_raw_assets/cat_model.glb" type="PackedScene" id=3]
+[ext_resource path="res://assets_raw/cc_raw_assets/cat_texture.material" type="Material" id=4]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 2.40888
+height = 4.79138
+
+[node name="Lady" type="KinematicBody"]
+script = ExtResource( 2 )
+npc = "lady"
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 0.842349, 5.74402e-15, -0.538932, 0, 1, 1.06581e-14, 0.538932, -8.97787e-15, 0.842349, -1.07042, 1.41469, 0.593541 )
+shape = SubResource( 1 )
+
+[node name="cat_model" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.15398, 0 )
+
+[node name="Object_7" parent="cat_model/cat_model/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton" index="0"]
+material/0 = ExtResource( 4 )
+
+[node name="LadyAnimationPlayer" type="AnimationPlayer" parent="cat_model"]
+autoplay = "cat_lounge"
+anims/cat_lounge = ExtResource( 1 )
+
+[editable path="cat_model"]

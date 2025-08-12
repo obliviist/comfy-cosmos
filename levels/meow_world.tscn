@@ -1,0 +1,737 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://environment/world_2_environment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/menu_scene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/cat_model_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/gui/start_screen_environment.tres" type="Environment" id=4]
+[ext_resource path="res://assets_raw/_textures/grass1.png" type="Texture" id=5]
+[ext_resource path="res://assets/npcs_tscn/npc_cassette_player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets_raw/cc_raw_assets/cassette_track1.glb" type="PackedScene" id=7]
+[ext_resource path="res://levels/meow_world.gd" type="Script" id=8]
+[ext_resource path="res://assets_raw/cc_raw_assets/cassette_track0.glb" type="PackedScene" id=9]
+[ext_resource path="res://assets_raw/cc_raw_assets/cassette_track3.glb" type="PackedScene" id=10]
+[ext_resource path="res://assets_raw/cc_raw_assets/cassette_track2.glb" type="PackedScene" id=11]
+[ext_resource path="res://assets_raw/cc_raw_assets/cassette_track4.glb" type="PackedScene" id=12]
+[ext_resource path="res://assets/npcs_tscn/npc_lord.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=67]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 63, -60 ) ]
+}
+
+[sub_resource type="Animation" id=68]
+resource_name = "menucamera_wobble"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1.5, 2.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 47, -60 ), Vector3( 1, 48.66, -60 ), Vector3( 0, 52, -60 ), Vector3( -1, 48.66, -60 ), Vector3( 0, 47, -60 ) ]
+}
+
+[sub_resource type="Animation" id=69]
+resource_name = "cat_lounge"
+length = 1.66667
+tracks/0/type = "transform"
+tracks/0/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.003_end_021")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 2.38419e-07, -2.38419e-07, 4.76837e-07, 0.648117, 2.10784e-09, 4.61702e-10, 0.761541, 1, 1, 1, 1.66667, 1, 2.38419e-07, -2.38419e-07, 4.76837e-07, 0.648117, 2.10784e-09, 4.61702e-10, 0.761541, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.003_03")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.229821, 0.0838792, 0.473476, 0.846148, 1, 1, 1, 0.0666667, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.229315, 0.0842196, 0.473419, 0.846284, 1, 1, 1, 0.133333, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.226059, 0.0864067, 0.473047, 0.847147, 1, 1, 1, 0.333333, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.208244, 0.0983071, 0.470882, 0.85161, 1, 1, 1, 0.4, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.205456, 0.100159, 0.470524, 0.852269, 1, 1, 1, 0.466667, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.206171, 0.099696, 0.470668, 0.852071, 1, 1, 1, 0.533333, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.209848, 0.0972875, 0.471303, 0.851101, 1, 1, 1, 0.733333, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.226018, 0.0865457, 0.47356, 0.846857, 1, 1, 1, 0.8, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.229205, 0.0843468, 0.473654, 0.84617, 1, 1, 1, 0.866667, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.229978, 0.083444, 0.472025, 0.846959, 1, 1, 1, 0.933333, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.230561, 0.0814252, 0.46491, 0.850923, 1, 1, 1, 1.13333, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.23291, 0.0714919, 0.429023, 0.869817, 1, 1, 1, 1.2, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.233368, 0.069236, 0.42079, 0.873889, 1, 1, 1, 1.26667, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.233459, 0.0687613, 0.419048, 0.874739, 1, 1, 1, 1.33333, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.233157, 0.0701921, 0.424229, 0.872205, 1, 1, 1, 1.6, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.230124, 0.0827654, 0.46949, 0.848394, 1, 1, 1, 1.66667, 1, -4.76837e-07, 6.55651e-07, -9.53674e-07, -0.229821, 0.0838792, 0.473476, 0.846148, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.002_02")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, -2.09548e-07, 4.76837e-07, -7.15256e-07, 0.238052, -1.9792e-09, 3.70525e-08, 0.971253, 1, 1, 1, 1.66667, 1, -2.09548e-07, 4.76837e-07, -7.15256e-07, 0.238052, -1.9792e-09, 3.70525e-08, 0.971253, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.011_end_022")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 3.01749e-07, -1.19209e-07, 1.78814e-07, 0.706836, -0.0195847, 0.0195831, 0.706836, 1, 1, 1, 1.66667, 1, 3.01749e-07, -1.19209e-07, 1.78814e-07, 0.706836, -0.0195847, 0.0195831, 0.706836, 1, 1, 1 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.011_06")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.168054, 0.00931983, 1.1875e-07, 0.985734, 1, 1, 1, 0.4, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.168054, 0.00931983, 1.14616e-07, 0.985734, 1, 1, 1, 0.466667, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.175031, 0.00428199, 0.000567034, 0.984554, 1, 1, 1, 0.533333, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.194732, -0.00999797, 0.00217362, 0.980803, 1, 1, 1, 0.6, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.210435, -0.0214375, 0.0034602, 0.977367, 1, 1, 1, 0.666667, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.208567, -0.020074, 0.00330686, 0.977797, 1, 1, 1, 0.8, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.171834, 0.00659141, 0.000307159, 0.985104, 1, 1, 1, 0.866667, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.168054, 0.00931983, 1.14616e-07, 0.985734, 1, 1, 1, 1.66667, 1, -1.04308e-07, -9.53674e-07, 2.98023e-08, -0.168054, 0.00931983, 1.1875e-07, 0.985734, 1, 1, 1 )
+tracks/5/type = "transform"
+tracks/5/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.010_05")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = PoolRealArray( 0, 1, -0.000125051, 0.000207067, -0.000545025, 0.833602, -0.217992, -0.150795, -0.484611, 1, 1, 1, 1.66667, 1, -0.000125051, 0.000207067, -0.000545025, 0.833602, -0.217992, -0.150795, -0.484611, 1, 1, 1 )
+tracks/6/type = "transform"
+tracks/6/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.009_04")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = PoolRealArray( 0, 1, 7.15256e-07, 5.96046e-08, 3.57628e-07, -0.268034, 0.0834552, 0.238173, 0.929767, 1, 1, 1, 1.66667, 1, 7.15256e-07, 5.96046e-08, 3.57628e-07, -0.268034, 0.0834552, 0.238173, 0.929767, 1, 1, 1 )
+tracks/7/type = "transform"
+tracks/7/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.014_end_023")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = PoolRealArray( 0, 1, 4.76837e-07, -1.13687e-13, 7.15256e-07, 0.707097, 0.00365265, -0.00365428, 0.707098, 1, 1, 1, 1.66667, 1, 4.76837e-07, -1.13687e-13, 7.15256e-07, 0.707097, 0.00365265, -0.00365428, 0.707098, 1, 1, 1 )
+tracks/8/type = "transform"
+tracks/8/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.014_09")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = PoolRealArray( 0, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.168303, -0.00173899, 1.4829e-07, 0.985734, 1, 1, 1, 0.4, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.168303, -0.00173899, 1.48747e-07, 0.985734, 1, 1, 1, 0.466667, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.176671, -0.00362274, 0.000188279, 0.984263, 1, 1, 1, 0.533333, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.200314, -0.00896017, 0.000721394, 0.979691, 1, 1, 1, 0.6, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.219174, -0.0132336, 0.00114832, 0.975595, 1, 1, 1, 0.666667, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.21693, -0.0127244, 0.00109744, 0.976104, 1, 1, 1, 0.8, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.172836, -0.00275925, 0.000102039, 0.984947, 1, 1, 1, 0.866667, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.168303, -0.00173899, 1.48998e-07, 0.985734, 1, 1, 1, 1.66667, 1, -7.45058e-09, 7.15256e-07, 2.68221e-07, -0.168303, -0.00173899, 1.4829e-07, 0.985734, 1, 1, 1 )
+tracks/9/type = "transform"
+tracks/9/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.013_08")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = PoolRealArray( 0, 1, -0.000139624, -0.000226438, 0.000532269, 0.780389, 0.414555, 0.142746, -0.445826, 1, 1, 1, 1.66667, 1, -0.000139624, -0.000226438, 0.000532269, 0.780389, 0.414555, 0.142746, -0.445826, 1, 1, 1 )
+tracks/10/type = "transform"
+tracks/10/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.012_07")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = PoolRealArray( 0, 1, -2.38419e-07, 5.96046e-08, 0, -0.267827, -0.0841141, -0.238174, 0.929767, 1, 1, 1, 1.66667, 1, -2.38419e-07, 5.96046e-08, 0, -0.267827, -0.0841141, -0.238174, 0.929767, 1, 1, 1 )
+tracks/11/type = "transform"
+tracks/11/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.001_01")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = PoolRealArray( 0, 1, 9.31323e-10, 0, 2.98023e-08, 0.144767, -3.68096e-09, 7.37983e-07, 0.989466, 1, 1, 1, 1.66667, 1, 9.31323e-10, 0, 2.98023e-08, 0.144767, -3.68096e-09, 7.37983e-07, 0.989466, 1, 1, 1 )
+tracks/12/type = "transform"
+tracks/12/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone_00")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = PoolRealArray( 0, 1, -5.82122e-08, 2.98023e-07, 1.19209e-07, -0.259808, 7.01187e-08, -1.01623e-06, 0.96566, 1, 1, 1, 1.66667, 1, -5.82122e-08, 2.98023e-07, 1.19209e-07, -0.259808, 7.01187e-08, -1.01623e-06, 0.96566, 1, 1, 1 )
+tracks/13/type = "transform"
+tracks/13/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.008_end_024")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = PoolRealArray( 0, 1, -2.38419e-07, -2.98023e-07, 4.76837e-07, 0.993332, -1.32047e-08, -1.2366e-07, 0.115288, 1, 1, 1, 1.66667, 1, 1.55431e-14, 2.38419e-07, 4.91738e-07, 0.993332, -2.04709e-08, -1.16159e-07, 0.115288, 1, 1, 1 )
+tracks/14/type = "transform"
+tracks/14/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.008_014")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = PoolRealArray( 0, 1, -1.19209e-07, -2.98023e-08, 2.08616e-07, 0.579363, -8.80931e-09, -1.29163e-07, 0.81507, 1, 1, 1, 1.66667, 1, -3.57628e-07, -2.98023e-08, 8.9407e-08, 0.579363, -6.52404e-09, -1.3459e-07, 0.81507, 1, 1, 1 )
+tracks/15/type = "transform"
+tracks/15/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.007_013")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = PoolRealArray( 0, 1, -3.8743e-07, 0, -1.78814e-07, 0.223468, 0.636917, -0.368319, 0.639327, 1, 1, 1, 0.8, 1, -1.78814e-07, 8.9407e-08, -5.96046e-08, 0.223468, 0.636917, -0.368319, 0.639328, 1, 1, 1, 0.866667, 1, -8.9407e-08, 1.78814e-07, -5.96046e-08, 0.230661, 0.637016, -0.373085, 0.633888, 1, 1, 1, 0.933333, 1, -2.68221e-07, 5.96046e-08, -5.96046e-08, 0.271406, 0.636303, -0.39964, 0.601453, 1, 1, 1, 1, 1, -1.78814e-07, 5.96046e-08, 0, 0.336235, 0.630418, -0.44024, 0.54379, 1, 1, 1, 1.06667, 1, -2.08616e-07, -8.9407e-08, -1.19209e-07, 0.408844, 0.615978, -0.482985, 0.469196, 1, 1, 1, 1.13333, 1, -8.9407e-08, -2.98023e-08, -1.19209e-07, 0.470448, 0.595907, -0.516534, 0.395936, 1, 1, 1, 1.2, 1, -8.9407e-08, -2.98023e-08, -1.19209e-07, 0.509254, 0.578729, -0.536092, 0.344004, 1, 1, 1, 1.26667, 1, -2.98023e-07, 5.96046e-08, -1.78814e-07, 0.516217, 0.575212, -0.539451, 0.334132, 1, 1, 1, 1.33333, 1, -5.96046e-08, 2.08616e-07, -5.96046e-08, 0.485349, 0.589772, -0.524204, 0.376584, 1, 1, 1, 1.4, 1, -2.98023e-08, 1.49012e-07, 0, 0.412702, 0.614949, -0.485165, 0.464898, 1, 1, 1, 1.46667, 1, -1.19209e-07, 1.19209e-07, -1.78814e-07, 0.314426, 0.633083, -0.42682, 0.564062, 1, 1, 1, 1.53333, 1, -2.08616e-07, -2.98023e-08, -5.96046e-08, 0.211546, 0.636609, -0.36037, 0.648159, 1, 1, 1, 1.6, 1, -2.08616e-07, 0, 5.96046e-08, 0.134648, 0.63046, -0.307649, 0.699815, 1, 1, 1, 1.66667, 1, 0, 2.98023e-08, 0, 0.101963, 0.625748, -0.284511, 0.719094, 1, 1, 1 )
+tracks/16/type = "transform"
+tracks/16/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.006_012")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = PoolRealArray( 0, 1, -2.98023e-08, 1.78814e-07, 2.38419e-07, 0.392001, -0.493666, -0.215091, 0.745899, 1, 1, 1, 0.8, 1, -1.04308e-07, 1.19209e-07, 5.96046e-08, 0.392001, -0.493666, -0.215091, 0.745899, 1, 1, 1, 0.866667, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.393654, -0.4945, -0.215434, 0.744375, 1, 1, 1, 0.933333, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.402943, -0.499158, -0.217346, 0.73569, 1, 1, 1, 1.13333, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.450082, -0.521897, -0.226645, 0.688246, 1, 1, 1, 1.2, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.460538, -0.526723, -0.228609, 0.676909, 1, 1, 1, 1.26667, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.463204, -0.52794, -0.229104, 0.673968, 1, 1, 1, 1.33333, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.460618, -0.52676, -0.228624, 0.676821, 1, 1, 1, 1.6, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.437366, -0.515917, -0.224206, 0.701621, 1, 1, 1, 1.66667, 1, -7.45058e-08, 2.08616e-07, 1.19209e-07, 0.435258, -0.514914, -0.223797, 0.703796, 1, 1, 1 )
+tracks/17/type = "transform"
+tracks/17/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.005_011")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = PoolRealArray( 0, 1, 1.19209e-07, 0, -2.68221e-07, 0.0523755, -0.04061, -0.772907, 0.631049, 1, 1, 1, 0.0666667, 1, 1.19209e-07, 0, -2.68221e-07, 0.0523665, -0.0405382, -0.772901, 0.631061, 1, 1, 1, 0.133333, 1, 1.19209e-07, 0, -2.68221e-07, 0.0523087, -0.0400767, -0.772864, 0.631141, 1, 1, 1, 0.333333, 1, 1.19209e-07, 0, -2.68221e-07, 0.0519933, -0.0375604, -0.772658, 0.631574, 1, 1, 1, 0.4, 1, 1.19209e-07, 0, -2.68221e-07, 0.0519441, -0.0371678, -0.772625, 0.631642, 1, 1, 1, 0.466667, 1, 1.19209e-07, 0, -2.68221e-07, 0.0520842, -0.0382863, -0.772718, 0.63145, 1, 1, 1, 0.533333, 1, 1.19209e-07, 0, -2.68221e-07, 0.0525928, -0.0423467, -0.773046, 0.630747, 1, 1, 1, 0.733333, 1, 1.19209e-07, 0, -2.68221e-07, 0.0548057, -0.0600921, -0.774323, 0.627542, 1, 1, 1, 0.8, 1, 1.19209e-07, 0, -2.68221e-07, 0.0552289, -0.0635006, -0.774539, 0.626903, 1, 1, 1, 0.866667, 1, 1.19209e-07, 0, -2.68221e-07, 0.0553038, -0.0641045, -0.774576, 0.626788, 1, 1, 1, 1.66667, 1, 1.19209e-07, 0, -2.68221e-07, 0.0553038, -0.0641045, -0.774576, 0.626788, 1, 1, 1 )
+tracks/18/type = "transform"
+tracks/18/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.004_010")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = PoolRealArray( 0, 1, 4.47035e-08, -8.9407e-08, -1.49012e-07, -0.017064, 0.264161, -0.552258, 0.790531, 1, 1, 1, 1.66667, 1, 4.47035e-08, -8.9407e-08, -1.49012e-07, -0.017064, 0.264161, -0.552258, 0.790531, 1, 1, 1 )
+tracks/19/type = "transform"
+tracks/19/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.017_end_025")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = PoolRealArray( 0, 1, 1.49012e-07, -1.2666e-07, -6.55651e-07, 5.67339e-08, 0.638362, 0.769736, -1.28967e-07, 1, 1, 1, 1.66667, 1, 2.84217e-14, -1.49012e-08, -1.78814e-07, 6.88331e-08, 0.638362, 0.769736, -1.10156e-07, 1, 1, 1 )
+tracks/20/type = "transform"
+tracks/20/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.017_017")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = PoolRealArray( 0, 1, -2.61127e-08, 0.00857818, -0.0114419, -0.193112, -7.34507e-08, 1.2017e-07, 0.981177, 1, 1, 1, 1.66667, 1, -2.61127e-08, 0.00857794, -0.0114417, -0.193112, -6.02234e-08, 1.26661e-07, 0.981177, 1, 1, 1 )
+tracks/21/type = "transform"
+tracks/21/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.016_016")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = PoolRealArray( 0, 1, -0.00160393, 0.00216746, 0.0247105, -0.0645927, -0.0199495, -0.000108257, 0.997712, 1, 1, 1, 0.0666667, 1, -0.00160393, 0.00216746, 0.0247105, -0.0688426, -0.0226248, -0.000122761, 0.997371, 1, 1, 1, 0.2, 1, -0.00160393, 0.00216746, 0.0247105, -0.108423, -0.0475654, -0.000257999, 0.992966, 1, 1, 1, 0.266667, 1, -0.00160393, 0.00216746, 0.0247105, -0.100662, -0.0426717, -0.000231474, 0.994005, 1, 1, 1, 0.333333, 1, -0.00160393, 0.00216746, 0.0247105, -0.0805435, -0.029993, -0.000162687, 0.9963, 1, 1, 1, 0.4, 1, -0.00160393, 0.00216746, 0.0247105, -0.0664787, -0.0211366, -0.00011469, 0.997564, 1, 1, 1, 0.466667, 1, -0.00160393, 0.00216746, 0.0247105, -0.0645927, -0.0199495, -0.000108257, 0.997712, 1, 1, 1, 0.8, 1, -0.00160393, 0.00216746, 0.0247105, -0.0645927, -0.0199495, -0.00010826, 0.997712, 1, 1, 1, 0.866667, 1, -0.00160396, 0.00216746, 0.0247107, -0.0655159, -0.0205306, -0.000111402, 0.99764, 1, 1, 1, 0.933333, 1, -0.00160396, 0.00216746, 0.0247105, -0.070725, -0.0238099, -0.000129182, 0.997212, 1, 1, 1, 1.13333, 1, -0.00160393, 0.00216746, 0.0247107, -0.0977861, -0.0408583, -0.000221592, 0.994368, 1, 1, 1, 1.2, 1, -0.00160387, 0.00216746, 0.0247105, -0.10396, -0.0447511, -0.000242754, 0.993574, 1, 1, 1, 1.26667, 1, -0.00160384, 0.00216734, 0.0247107, -0.105733, -0.0458687, -0.000248764, 0.993336, 1, 1, 1, 1.66667, 1, -0.00160381, 0.00216758, 0.0247105, -0.105733, -0.0458687, -0.000248779, 0.993336, 1, 1, 1 )
+tracks/22/type = "transform"
+tracks/22/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.015_015")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = PoolRealArray( 0, 1, -1.08033e-07, -1.08778e-06, 5.96046e-08, 0.217278, -0.03633, 0.0294339, 0.974989, 1, 1, 1, 0.866667, 1, -1.08033e-07, -1.08778e-06, 5.96046e-08, 0.217484, -0.036311, 0.0295377, 0.974941, 1, 1, 1, 0.933333, 1, -1.08033e-07, -1.08778e-06, 5.96046e-08, 0.21874, -0.0361957, 0.03017, 0.974645, 1, 1, 1, 1, 1, -1.08033e-07, -1.08778e-06, 5.96046e-08, 0.220977, -0.0359898, 0.0312971, 0.974112, 1, 1, 1, 1.53333, 1, -1.08033e-07, -1.08778e-06, 5.96046e-08, 0.250439, -0.0332435, 0.0461873, 0.966458, 1, 1, 1, 1.6, 1, -1.08033e-07, -1.08778e-06, 5.96046e-08, 0.252213, -0.033076, 0.047087, 0.965959, 1, 1, 1, 1.66667, 1, -1.08033e-07, -1.08778e-06, 5.96046e-08, 0.252917, -0.0330094, 0.0474439, 0.96576, 1, 1, 1 )
+tracks/23/type = "transform"
+tracks/23/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.020_end_026")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = PoolRealArray( 0, 1, -2.08616e-07, -3.57628e-07, 4.76837e-07, 1.90831e-07, 0.639385, 0.768887, 1.71313e-07, 1, 1, 1, 1.66667, 1, -1.19209e-07, -3.42727e-07, 7.15256e-07, 1.87197e-07, 0.639385, 0.768887, 1.73915e-07, 1, 1, 1 )
+tracks/24/type = "transform"
+tracks/24/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.020_020")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = PoolRealArray( 0, 1, -3.30246e-08, -0.00854826, 0.0114643, -0.193112, 1.97255e-08, 1.6582e-07, 0.981177, 1, 1, 1, 1.66667, 1, -3.22224e-09, -0.00854814, 0.0114643, -0.193112, 1.95113e-08, 1.80496e-07, 0.981177, 1, 1, 1 )
+tracks/25/type = "transform"
+tracks/25/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.019_019")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = PoolRealArray( 0, 1, 0.00160384, -0.00208998, -0.0247172, -0.0645929, -0.019949, -0.000170987, 0.997712, 1, 1, 1, 0.0666667, 1, 0.00160384, -0.00208998, -0.0247172, -0.0688428, -0.0226242, -0.000193914, 0.997371, 1, 1, 1, 0.2, 1, 0.00160384, -0.00208998, -0.0247172, -0.108423, -0.0475643, -0.00040763, 0.992966, 1, 1, 1, 0.266667, 1, 0.00160384, -0.00208998, -0.0247172, -0.100663, -0.0426707, -0.000365697, 0.994005, 1, 1, 1, 0.333333, 1, 0.00160384, -0.00208998, -0.0247172, -0.0805436, -0.0299923, -0.000257042, 0.9963, 1, 1, 1, 0.4, 1, 0.00160384, -0.00208998, -0.0247172, -0.0664788, -0.0211361, -0.000181161, 0.997564, 1, 1, 1, 0.466667, 1, 0.00160384, -0.00208998, -0.0247172, -0.0645929, -0.019949, -0.000170979, 0.997712, 1, 1, 1, 0.8, 1, 0.00160384, -0.00208998, -0.0247172, -0.0645929, -0.019949, -0.000170996, 0.997712, 1, 1, 1, 0.866667, 1, 0.00160384, -0.00208998, -0.0247172, -0.0655161, -0.0205301, -0.000175926, 0.99764, 1, 1, 1, 0.933333, 1, 0.00160378, -0.00208998, -0.0247172, -0.0707253, -0.0238094, -0.000204035, 0.997212, 1, 1, 1, 1.13333, 1, 0.00160387, -0.00208998, -0.0247173, -0.0977861, -0.0408574, -0.000350149, 0.994368, 1, 1, 1, 1.2, 1, 0.00160387, -0.00208986, -0.0247172, -0.103961, -0.0447502, -0.000383509, 0.993574, 1, 1, 1, 1.26667, 1, 0.00160384, -0.00208998, -0.0247171, -0.105733, -0.0458676, -0.000393077, 0.993336, 1, 1, 1, 1.66667, 1, 0.00160384, -0.00208974, -0.0247173, -0.105733, -0.0458676, -0.000393074, 0.993336, 1, 1, 1 )
+tracks/26/type = "transform"
+tracks/26/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.018_018")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = PoolRealArray( 0, 1, -1.63913e-07, 2.38419e-07, -4.76837e-07, 0.207032, 0.0752934, 0.0294041, 0.974989, 1, 1, 1, 0.866667, 1, -1.63913e-07, 2.38419e-07, -4.76837e-07, 0.207202, 0.0754114, 0.0295078, 0.974941, 1, 1, 1, 0.933333, 1, -1.63913e-07, 2.38419e-07, -4.76837e-07, 0.208238, 0.0761305, 0.0301394, 0.974645, 1, 1, 1, 1, 1, -1.63913e-07, 2.38419e-07, -4.76837e-07, 0.210085, 0.0774122, 0.0312654, 0.974112, 1, 1, 1, 1.53333, 1, -1.63913e-07, 2.38419e-07, -4.76837e-07, 0.234379, 0.0943173, 0.0461403, 0.966458, 1, 1, 1, 1.6, 1, -1.63913e-07, 2.38419e-07, -4.76837e-07, 0.235841, 0.0953373, 0.0470392, 0.965959, 1, 1, 1, 1.66667, 1, -1.63913e-07, 2.38419e-07, -4.76837e-07, 0.236421, 0.0957418, 0.0473957, 0.96576, 1, 1, 1 )
+tracks/27/type = "transform"
+tracks/27/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:_rootJoint")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = PoolRealArray( 0, 1, 9.13701e-08, 9.32161e-09, -6.57611e-08, 0.155983, -0.439376, -0.0074453, 0.884626, 1, 1, 1, 1.66667, 1, 9.13701e-08, 9.32161e-09, -6.57611e-08, 0.155983, -0.439376, -0.0074453, 0.884626, 1, 1, 1 )
+
+[sub_resource type="Animation" id=70]
+resource_name = "cat_pose"
+length = 1.66667
+tracks/0/type = "transform"
+tracks/0/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.003_end_021")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 3.57628e-07, 0, 4.76837e-07, -6.70552e-08, -3.88135e-16, 2.47691e-09, 1, 1, 1, 1, 1.66667, 1, 3.57628e-07, 0, 4.76837e-07, -6.70552e-08, -3.88135e-16, 2.47691e-09, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.003_03")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 8.9407e-08, 3.72529e-08, -3.55271e-15, 1, 1, 1, 1, 0.0666667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.000151775, -8.11465e-05, 0.00136059, 0.999999, 1, 1, 1, 0.133333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00118966, -0.000584951, 0.0101099, 0.999948, 1, 1, 1, 0.266667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00599033, -0.00220094, 0.0427842, 0.999064, 1, 1, 1, 0.333333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00916901, -0.00266895, 0.0578502, 0.99828, 1, 1, 1, 0.4, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.012526, -0.00238323, 0.0652492, 0.997788, 1, 1, 1, 0.466667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0161063, -0.00155515, 0.0655834, 0.997716, 1, 1, 1, 0.533333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0202165, -0.000793245, 0.0636154, 0.997769, 1, 1, 1, 0.6, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0244159, -0.000189411, 0.0604435, 0.997873, 1, 1, 1, 0.666667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0282582, 0.000267918, 0.0564278, 0.998007, 1, 1, 1, 0.733333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0311037, 0.000552655, 0.0517839, 0.998174, 1, 1, 1, 0.8, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0325923, 0.000687651, 0.0469142, 0.998367, 1, 1, 1, 0.866667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0323181, 0.000681673, 0.0420401, 0.998593, 1, 1, 1, 0.933333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0308646, 0.000637136, 0.0371086, 0.998834, 1, 1, 1, 1, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0286175, 0.000580398, 0.0321477, 0.999073, 1, 1, 1, 1.06667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0256539, 0.00051309, 0.0272486, 0.999299, 1, 1, 1, 1.13333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0222545, 0.000439814, 0.0224856, 0.999499, 1, 1, 1, 1.26667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0147539, 0.000286241, 0.0137402, 0.999797, 1, 1, 1, 1.46667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00454514, 8.64956e-05, 0.0038572, 0.999982, 1, 1, 1, 1.53333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00215995, 4.08997e-05, 0.00178834, 0.999996, 1, 1, 1, 1.6, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.000612358, 1.15394e-05, 0.000496336, 1, 1, 1, 1, 1.66667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 8.9407e-08, 3.72529e-08, -3.55271e-15, 1, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.002_02")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 1.44355e-07, 3.57628e-07, -9.53674e-07, -3.84568e-23, 1.69052e-10, -1.28148e-09, 1, 1, 1, 1, 1.66667, 1, 1.44355e-07, 3.57628e-07, -9.53674e-07, -3.84568e-23, 1.69052e-10, -1.28148e-09, 1, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.011_end_022")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 3.72529e-09, 0, 4.76837e-07, -2.06285e-10, -3.7261e-09, 3.72518e-09, 1, 1, 1, 1, 1.66667, 1, 3.72529e-09, 0, 4.76837e-07, -2.06285e-10, -3.7261e-09, 3.72518e-09, 1, 1, 1, 1 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.011_06")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 1.82539e-07, -1.07288e-06, -1.19209e-07, -5.20417e-18, -5.58794e-09, -4.42378e-09, 1, 1, 1, 1, 1.66667, 1, 1.82539e-07, -1.07288e-06, -1.19209e-07, -5.20417e-18, -5.58794e-09, -4.42378e-09, 1, 1, 1, 1 )
+tracks/5/type = "transform"
+tracks/5/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.010_05")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = PoolRealArray( 0, 1, -0.000125434, 0.000207126, -0.000545144, -2.64698e-23, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1, 1.66667, 1, -0.000125434, 0.000207126, -0.000545144, -2.64698e-23, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1 )
+tracks/6/type = "transform"
+tracks/6/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.009_04")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = PoolRealArray( 0, 1, 2.38419e-07, -5.96046e-08, 1.19209e-07, -4.47035e-08, -6.70552e-08, 2.98023e-08, 1, 1, 1, 1, 1.66667, 1, 2.38419e-07, -5.96046e-08, 1.19209e-07, -4.47035e-08, -6.70552e-08, 2.98023e-08, 1, 1, 1, 1 )
+tracks/7/type = "transform"
+tracks/7/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.014_end_023")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = PoolRealArray( 0, 1, 4.65661e-10, -2.38419e-07, 2.38419e-07, -1.42109e-14, -3.82637e-13, -1.13687e-13, 1, 1, 1, 1, 1.66667, 1, 4.65661e-10, -2.38419e-07, 2.38419e-07, -1.42109e-14, -3.82637e-13, -1.13687e-13, 1, 1, 1, 1 )
+tracks/8/type = "transform"
+tracks/8/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.014_09")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = PoolRealArray( 0, 1, 2.30968e-07, 1.07288e-06, -2.98023e-08, 1.49012e-08, -2.11876e-08, 1.46683e-08, 1, 1, 1, 1, 1.66667, 1, 2.30968e-07, 1.07288e-06, -2.98023e-08, 1.49012e-08, -2.11876e-08, 1.46683e-08, 1, 1, 1, 1 )
+tracks/9/type = "transform"
+tracks/9/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.013_08")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = PoolRealArray( 0, 1, -0.000139266, -0.000226796, 0.00053215, 7.45058e-08, 8.19564e-08, 7.63684e-08, 1, 1, 1, 1, 1.66667, 1, -0.000139266, -0.000226796, 0.00053215, 7.45058e-08, 8.19564e-08, 7.63684e-08, 1, 1, 1, 1 )
+tracks/10/type = "transform"
+tracks/10/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.012_07")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = PoolRealArray( 0, 1, -1.19209e-07, 8.9407e-08, 0, 4.47035e-08, 5.21541e-08, 4.47035e-08, 1, 1, 1, 1, 1.66667, 1, -1.19209e-07, 8.9407e-08, 0, 4.47035e-08, 5.21541e-08, 4.47035e-08, 1, 1, 1, 1 )
+tracks/11/type = "transform"
+tracks/11/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.001_01")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = PoolRealArray( 0, 1, -1.86265e-09, 0, 0, -4.86119e-20, 3.69582e-10, 1.31696e-10, 1, 1, 1, 1, 1.66667, 1, -1.86265e-09, 0, 0, -4.86119e-20, 3.69582e-10, 1.31696e-10, 1, 1, 1, 1 )
+tracks/12/type = "transform"
+tracks/12/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone_00")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = PoolRealArray( 0, 1, 7.45049e-08, -2.98023e-08, -2.68221e-07, -1.49012e-08, 9.01011e-10, 2.29107e-09, 1, 1, 1, 1, 1.66667, 1, 7.45049e-08, -2.98023e-08, -2.68221e-07, -1.49012e-08, 9.01011e-10, 2.29107e-09, 1, 1, 1, 1 )
+tracks/13/type = "transform"
+tracks/13/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.008_end_024")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = PoolRealArray( 0, 1, -1.19209e-07, 2.38419e-07, 0, 0, 0, 4.32365e-10, 1, 1, 1, 1, 1.66667, 1, -1.19209e-07, 2.38419e-07, 0, 0, 0, 4.32365e-10, 1, 1, 1, 1 )
+tracks/14/type = "transform"
+tracks/14/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.008_014")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = PoolRealArray( 0, 1, 0, 0, 5.96046e-08, -2.79175e-18, 8.35426e-10, 3.34172e-09, 1, 1, 1, 1, 0.0666667, 1, 0, -2.98023e-08, 2.98023e-08, 0.000764944, 0.000441302, 0.00126663, 0.999999, 1, 1, 1, 0.133333, 1, -1.90735e-07, -1.19209e-07, 2.98023e-08, 0.00607014, 0.00350191, 0.0100512, 0.999925, 1, 1, 1, 0.2, 1, 0, -2.98023e-08, 8.9407e-08, 0.0167454, 0.0096605, 0.0277275, 0.999429, 1, 1, 1, 0.333333, 1, -1.19209e-07, 0, 5.96046e-08, 0.0493792, 0.028487, 0.0817633, 0.99502, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0.141521, 0.081644, 0.234334, 0.958329, 1, 1, 1, 0.733333, 1, -9.53673e-08, -2.98023e-08, -5.96046e-08, 0.152072, 0.0877309, 0.251804, 0.95172, 1, 1, 1, 0.8, 1, -1.43051e-07, -1.49012e-07, 1.19209e-07, 0.157961, 0.0911284, 0.261556, 0.947804, 1, 1, 1, 0.866667, 1, -2.38419e-07, -8.9407e-08, 1.49012e-07, 0.158054, 0.0911819, 0.26171, 0.947741, 1, 1, 1, 0.933333, 1, -1.90735e-07, -1.19209e-07, 1.19209e-07, 0.152712, 0.0881002, 0.252865, 0.951303, 1, 1, 1, 1, 1, 0, 2.98023e-08, 1.49012e-07, 0.143106, 0.0825582, 0.236958, 0.957369, 1, 1, 1, 1.33333, 1, -2.38419e-07, -1.49012e-07, -5.96046e-08, 0.0566293, 0.0326697, 0.0937683, 0.993445, 1, 1, 1, 1.46667, 1, -2.38419e-08, -2.08616e-07, 2.98023e-08, 0.0233284, 0.0134583, 0.0386278, 0.998891, 1, 1, 1, 1.53333, 1, -2.14577e-07, -8.9407e-08, 0, 0.0110695, 0.00638608, 0.0183293, 0.99975, 1, 1, 1, 1.6, 1, -7.15256e-08, -8.9407e-08, 8.9407e-08, 0.00313487, 0.00180855, 0.00519088, 0.99998, 1, 1, 1, 1.66667, 1, 0, 0, 5.96046e-08, -2.79175e-18, 8.35426e-10, 3.34172e-09, 1, 1, 1, 1 )
+tracks/15/type = "transform"
+tracks/15/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.007_013")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = PoolRealArray( 0, 1, -8.9407e-08, 0, 5.96046e-08, -2.98023e-08, 3.72529e-09, -2.98023e-08, 1, 1, 1, 1, 1.66667, 1, -8.9407e-08, 0, 5.96046e-08, -2.98023e-08, 3.72529e-09, -2.98023e-08, 1, 1, 1, 1 )
+tracks/16/type = "transform"
+tracks/16/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.006_012")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = PoolRealArray( 0, 1, 4.47035e-08, -2.98023e-08, 5.96046e-08, -8.19564e-08, -7.45058e-09, 0, 1, 1, 1, 1, 0.0666667, 1, 7.45058e-08, 1.19209e-07, 5.96046e-08, -0.000374263, 0.000381237, 0.000541249, 1, 1, 1, 1, 0.133333, 1, 1.49012e-08, 0, 0, -0.0032058, 0.00326647, 0.00463772, 0.999979, 1, 1, 1, 0.2, 1, 1.19209e-07, 5.96046e-08, -5.96046e-08, -0.00964581, 0.00982859, 0.0139546, 0.999808, 1, 1, 1, 0.266667, 1, 5.96046e-08, 3.27826e-07, 1.19209e-07, -0.0200465, 0.0204265, 0.0290015, 0.99917, 1, 1, 1, 0.333333, 1, 4.47035e-08, 2.98023e-08, 0, -0.0344153, 0.0350678, 0.0497893, 0.99755, 1, 1, 1, 0.4, 1, -2.98023e-08, -5.96046e-08, -1.78814e-07, -0.0538838, 0.0549055, 0.0779548, 0.993984, 1, 1, 1, 0.6, 1, 1.49012e-08, 1.19209e-07, 1.19209e-07, -0.131962, 0.134464, 0.190912, 0.963358, 1, 1, 1, 0.666667, 1, 4.47035e-08, 2.98023e-08, 0, -0.15638, 0.159345, 0.226239, 0.94814, 1, 1, 1, 0.733333, 1, 1.19209e-07, 5.96046e-08, 1.19209e-07, -0.174644, 0.177956, 0.252662, 0.934876, 1, 1, 1, 0.8, 1, 1.04308e-07, 5.96046e-08, 5.96046e-08, -0.185152, 0.188663, 0.267864, 0.926485, 1, 1, 1, 0.866667, 1, 2.98023e-08, 2.38419e-07, 1.78814e-07, -0.185914, 0.18944, 0.268967, 0.925854, 1, 1, 1, 0.933333, 1, 1.78814e-07, 2.38419e-07, 2.38419e-07, -0.179757, 0.183165, 0.260058, 0.930864, 1, 1, 1, 1, 1, 1.93715e-07, 3.27826e-07, 2.38419e-07, -0.168639, 0.171837, 0.243974, 0.93942, 1, 1, 1, 1.26667, 1, 2.98023e-08, -5.96046e-08, -1.19209e-07, -0.0894949, 0.0911919, 0.129474, 0.983316, 1, 1, 1, 1.46667, 1, 1.49012e-07, 1.49012e-07, 0, -0.0274827, 0.0280037, 0.0397597, 0.998439, 1, 1, 1, 1.53333, 1, 7.45058e-08, 0, 0, -0.0130223, 0.0132692, 0.0188395, 0.99965, 1, 1, 1, 1.6, 1, 1.3411e-07, 5.96046e-08, 1.19209e-07, -0.0036842, 0.00375399, 0.00532973, 0.999972, 1, 1, 1, 1.66667, 1, 4.47035e-08, -2.98023e-08, 5.96046e-08, -8.19564e-08, -7.45058e-09, 0, 1, 1, 1, 1 )
+tracks/17/type = "transform"
+tracks/17/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.005_011")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = PoolRealArray( 0, 1, -2.98023e-08, 0, -1.3411e-07, -2.98023e-08, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1, 0.0666667, 1, -2.98023e-08, 0, -1.3411e-07, 0.000108992, -0.00044551, -8.89635e-05, 1, 1, 1, 1, 0.133333, 1, -2.98023e-08, 0, -1.3411e-07, 0.000879602, -0.00359522, -0.000718215, 0.999993, 1, 1, 1, 0.2, 1, -2.98023e-08, 0, -1.3411e-07, 0.00247547, -0.0101181, -0.00202131, 0.999944, 1, 1, 1, 0.266667, 1, -2.98023e-08, 0, -1.3411e-07, 0.00478655, -0.0195645, -0.00390841, 0.99979, 1, 1, 1, 1.06667, 1, -2.98023e-08, 0, -1.3411e-07, 0.0489262, -0.199978, -0.03995, 0.977762, 1, 1, 1, 1.13333, 1, -2.98023e-08, 0, -1.3411e-07, 0.0507649, -0.207494, -0.0414514, 0.976038, 1, 1, 1, 1.2, 1, -2.98023e-08, 0, -1.3411e-07, 0.0518399, -0.211887, -0.0423291, 0.975, 1, 1, 1, 1.26667, 1, -2.98023e-08, 0, -1.3411e-07, 0.0515504, -0.210704, -0.0420927, 0.975282, 1, 1, 1, 1.33333, 1, -2.98023e-08, 0, -1.3411e-07, 0.0468098, -0.191328, -0.0382219, 0.979664, 1, 1, 1, 1.6, 1, -2.98023e-08, 0, -1.3411e-07, 0.00384425, -0.0157127, -0.00313889, 0.999864, 1, 1, 1, 1.66667, 1, -2.98023e-08, 0, -1.3411e-07, -2.98023e-08, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1 )
+tracks/18/type = "transform"
+tracks/18/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.004_010")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = PoolRealArray( 0, 1, 2.08616e-07, 1.78814e-07, -1.49012e-07, -7.45058e-08, 2.98023e-08, 1.04308e-07, 1, 1, 1, 1, 1.66667, 1, 2.08616e-07, 1.78814e-07, -1.49012e-07, -7.45058e-08, 2.98023e-08, 1.04308e-07, 1, 1, 1, 1 )
+tracks/19/type = "transform"
+tracks/19/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.017_end_025")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = PoolRealArray( 0, 1, -5.96046e-08, -1.49012e-08, -1.78814e-07, 7.45058e-09, 7.72367e-10, 9.26846e-09, 1, 1, 1, 1, 1.66667, 1, -5.96046e-08, -1.49012e-08, -1.78814e-07, 7.45058e-09, 7.72367e-10, 9.26846e-09, 1, 1, 1, 1 )
+tracks/20/type = "transform"
+tracks/20/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.017_017")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = PoolRealArray( 0, 1, -5.59151e-08, 0.00857794, -0.0114418, -1.32244e-17, -4.7147e-09, -2.80495e-09, 1, 1, 1, 1, 1.66667, 1, -5.59151e-08, 0.00857794, -0.0114418, -1.32244e-17, -4.7147e-09, -2.80495e-09, 1, 1, 1, 1 )
+tracks/21/type = "transform"
+tracks/21/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.016_016")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = PoolRealArray( 0, 1, -0.00160387, 0.00216758, 0.0247105, -1.49012e-08, 5.08152e-09, -7.20927e-09, 1, 1, 1, 1, 0.0666667, 1, -0.00160387, 0.00216758, 0.0247105, 0.00143903, -0.000523202, 2.48218e-05, 0.999999, 1, 1, 1, 0.133333, 1, -0.00160387, 0.00216758, 0.0247105, 0.010691, -0.00388687, 0.000184311, 0.999935, 1, 1, 1, 0.333333, 1, -0.00160387, 0.00216758, 0.0247105, 0.0611278, -0.0222238, 0.00105382, 0.997882, 1, 1, 1, 0.4, 1, -0.00160387, 0.00216758, 0.0247105, 0.0689781, -0.0250778, 0.00118915, 0.997302, 1, 1, 1, 0.466667, 1, -0.00160387, 0.00216758, 0.0247105, 0.0695753, -0.0252949, 0.00119948, 0.997255, 1, 1, 1, 0.533333, 1, -0.00160387, 0.00216758, 0.0247105, 0.0681946, -0.024793, 0.00117567, 0.997363, 1, 1, 1, 0.6, 1, -0.00160387, 0.00216758, 0.0247105, 0.0658338, -0.0239347, 0.00113497, 0.997543, 1, 1, 1, 0.666667, 1, -0.00160387, 0.00216758, 0.0247105, 0.0626779, -0.0227873, 0.00108055, 0.997773, 1, 1, 1, 1.6, 1, -0.00160387, 0.00216758, 0.0247105, 0.000625822, -0.000227517, 1.0782e-05, 1, 1, 1, 1, 1.66667, 1, -0.00160387, 0.00216758, 0.0247105, -1.49012e-08, 5.08152e-09, -7.20927e-09, 1, 1, 1, 1 )
+tracks/22/type = "transform"
+tracks/22/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.015_015")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = PoolRealArray( 0, 1, -6.70552e-08, -6.85453e-07, 5.96046e-08, 5.96046e-08, -2.98023e-08, 7.45058e-09, 1, 1, 1, 1, 1.66667, 1, -6.70552e-08, -6.85453e-07, 5.96046e-08, 5.96046e-08, -2.98023e-08, 7.45058e-09, 1, 1, 1, 1 )
+tracks/23/type = "transform"
+tracks/23/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.020_end_026")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = PoolRealArray( 0, 1, -5.96046e-08, 1.49012e-08, 2.38419e-07, 7.45058e-09, -7.74463e-10, 3.09785e-09, 1, 1, 1, 1, 1.66667, 1, -5.96046e-08, 1.49012e-08, 2.38419e-07, 7.45058e-09, -7.74463e-10, 3.09785e-09, 1, 1, 1, 1 )
+tracks/24/type = "transform"
+tracks/24/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.020_020")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = PoolRealArray( 0, 1, -9.2629e-08, -0.00854778, 0.011464, 5.26878e-18, -1.97346e-09, 2.6698e-09, 1, 1, 1, 1, 1.66667, 1, -9.2629e-08, -0.00854778, 0.011464, 5.26878e-18, -1.97346e-09, 2.6698e-09, 1, 1, 1, 1 )
+tracks/25/type = "transform"
+tracks/25/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.019_019")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = PoolRealArray( 0, 1, 0.00160384, -0.00208998, -0.0247172, -1.49012e-08, -9.64755e-09, 1.43093e-08, 1, 1, 1, 1, 0.0666667, 1, 0.00160384, -0.00208998, -0.0247172, 0.00143912, -0.000523295, 2.31827e-05, 0.999999, 1, 1, 1, 0.133333, 1, 0.00160384, -0.00208998, -0.0247172, 0.0106911, -0.00388743, 0.000172079, 0.999935, 1, 1, 1, 0.333333, 1, 0.00160384, -0.00208998, -0.0247172, 0.0611277, -0.0222269, 0.000983887, 0.997882, 1, 1, 1, 0.4, 1, 0.00160384, -0.00208998, -0.0247172, 0.0689781, -0.0250814, 0.00111027, 0.997302, 1, 1, 1, 0.466667, 1, 0.00160384, -0.00208998, -0.0247172, 0.0695754, -0.0252986, 0.0011199, 0.997255, 1, 1, 1, 0.533333, 1, 0.00160384, -0.00208998, -0.0247172, 0.0681947, -0.0247966, 0.00109765, 0.997363, 1, 1, 1, 0.6, 1, 0.00160384, -0.00208998, -0.0247172, 0.0658339, -0.0239381, 0.00105966, 0.997543, 1, 1, 1, 0.666667, 1, 0.00160384, -0.00208998, -0.0247172, 0.0626779, -0.0227906, 0.00100886, 0.997773, 1, 1, 1, 1.6, 1, 0.00160384, -0.00208998, -0.0247172, 0.000625792, -0.000227534, 1.01032e-05, 1, 1, 1, 1, 1.66667, 1, 0.00160384, -0.00208998, -0.0247172, -1.49012e-08, -9.64755e-09, 1.43093e-08, 1, 1, 1, 1 )
+tracks/26/type = "transform"
+tracks/26/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.018_018")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = PoolRealArray( 0, 1, -1.49012e-08, -2.23517e-07, -5.96046e-07, 8.9407e-08, 1.86264e-08, 1.49012e-08, 1, 1, 1, 1, 1.66667, 1, -1.49012e-08, -2.23517e-07, -5.96046e-07, 8.9407e-08, 1.86264e-08, 1.49012e-08, 1, 1, 1, 1 )
+tracks/27/type = "transform"
+tracks/27/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:_rootJoint")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = PoolRealArray( 0, 1, 9.13701e-08, 9.32161e-09, -6.57611e-08, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 9.13701e-08, 9.32161e-09, -6.57611e-08, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="Animation" id=71]
+resource_name = "cat_pose"
+length = 1.66667
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.003_end_021")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = PoolRealArray( 0, 1, 3.57628e-07, 0, 4.76837e-07, -6.70552e-08, -3.88135e-16, 2.47691e-09, 1, 1, 1, 1, 1.66667, 1, 3.57628e-07, 0, 4.76837e-07, -6.70552e-08, -3.88135e-16, 2.47691e-09, 1, 1, 1, 1 )
+tracks/1/type = "transform"
+tracks/1/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.003_03")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = PoolRealArray( 0, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 8.9407e-08, 3.72529e-08, -3.55271e-15, 1, 1, 1, 1, 0.0666667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.000151775, -8.11465e-05, 0.00136059, 0.999999, 1, 1, 1, 0.133333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00118966, -0.000584951, 0.0101099, 0.999948, 1, 1, 1, 0.266667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00599033, -0.00220094, 0.0427842, 0.999064, 1, 1, 1, 0.333333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00916901, -0.00266895, 0.0578502, 0.99828, 1, 1, 1, 0.4, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.012526, -0.00238323, 0.0652492, 0.997788, 1, 1, 1, 0.466667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0161063, -0.00155515, 0.0655834, 0.997716, 1, 1, 1, 0.533333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0202165, -0.000793245, 0.0636154, 0.997769, 1, 1, 1, 0.6, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0244159, -0.000189411, 0.0604435, 0.997873, 1, 1, 1, 0.666667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0282582, 0.000267918, 0.0564278, 0.998007, 1, 1, 1, 0.733333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0311037, 0.000552655, 0.0517839, 0.998174, 1, 1, 1, 0.8, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0325923, 0.000687651, 0.0469142, 0.998367, 1, 1, 1, 0.866667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0323181, 0.000681673, 0.0420401, 0.998593, 1, 1, 1, 0.933333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0308646, 0.000637136, 0.0371086, 0.998834, 1, 1, 1, 1, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0286175, 0.000580398, 0.0321477, 0.999073, 1, 1, 1, 1.06667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0256539, 0.00051309, 0.0272486, 0.999299, 1, 1, 1, 1.13333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0222545, 0.000439814, 0.0224856, 0.999499, 1, 1, 1, 1.26667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.0147539, 0.000286241, 0.0137402, 0.999797, 1, 1, 1, 1.46667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00454514, 8.64956e-05, 0.0038572, 0.999982, 1, 1, 1, 1.53333, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.00215995, 4.08997e-05, 0.00178834, 0.999996, 1, 1, 1, 1.6, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 0.000612358, 1.15394e-05, 0.000496336, 1, 1, 1, 1, 1.66667, 1, 5.96046e-08, 1.78814e-07, 1.19209e-07, 8.9407e-08, 3.72529e-08, -3.55271e-15, 1, 1, 1, 1 )
+tracks/2/type = "transform"
+tracks/2/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.002_02")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = PoolRealArray( 0, 1, 1.44355e-07, 3.57628e-07, -9.53674e-07, -3.84568e-23, 1.69052e-10, -1.28148e-09, 1, 1, 1, 1, 1.66667, 1, 1.44355e-07, 3.57628e-07, -9.53674e-07, -3.84568e-23, 1.69052e-10, -1.28148e-09, 1, 1, 1, 1 )
+tracks/3/type = "transform"
+tracks/3/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.011_end_022")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = PoolRealArray( 0, 1, 3.72529e-09, 0, 4.76837e-07, -2.06285e-10, -3.7261e-09, 3.72518e-09, 1, 1, 1, 1, 1.66667, 1, 3.72529e-09, 0, 4.76837e-07, -2.06285e-10, -3.7261e-09, 3.72518e-09, 1, 1, 1, 1 )
+tracks/4/type = "transform"
+tracks/4/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.011_06")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = PoolRealArray( 0, 1, 1.82539e-07, -1.07288e-06, -1.19209e-07, -5.20417e-18, -5.58794e-09, -4.42378e-09, 1, 1, 1, 1, 1.66667, 1, 1.82539e-07, -1.07288e-06, -1.19209e-07, -5.20417e-18, -5.58794e-09, -4.42378e-09, 1, 1, 1, 1 )
+tracks/5/type = "transform"
+tracks/5/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.010_05")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = PoolRealArray( 0, 1, -0.000125434, 0.000207126, -0.000545144, -2.64698e-23, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1, 1.66667, 1, -0.000125434, 0.000207126, -0.000545144, -2.64698e-23, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1 )
+tracks/6/type = "transform"
+tracks/6/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.009_04")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = PoolRealArray( 0, 1, 2.38419e-07, -5.96046e-08, 1.19209e-07, -4.47035e-08, -6.70552e-08, 2.98023e-08, 1, 1, 1, 1, 1.66667, 1, 2.38419e-07, -5.96046e-08, 1.19209e-07, -4.47035e-08, -6.70552e-08, 2.98023e-08, 1, 1, 1, 1 )
+tracks/7/type = "transform"
+tracks/7/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.014_end_023")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = PoolRealArray( 0, 1, 4.65661e-10, -2.38419e-07, 2.38419e-07, -1.42109e-14, -3.82637e-13, -1.13687e-13, 1, 1, 1, 1, 1.66667, 1, 4.65661e-10, -2.38419e-07, 2.38419e-07, -1.42109e-14, -3.82637e-13, -1.13687e-13, 1, 1, 1, 1 )
+tracks/8/type = "transform"
+tracks/8/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.014_09")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = PoolRealArray( 0, 1, 2.30968e-07, 1.07288e-06, -2.98023e-08, 1.49012e-08, -2.11876e-08, 1.46683e-08, 1, 1, 1, 1, 1.66667, 1, 2.30968e-07, 1.07288e-06, -2.98023e-08, 1.49012e-08, -2.11876e-08, 1.46683e-08, 1, 1, 1, 1 )
+tracks/9/type = "transform"
+tracks/9/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.013_08")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = PoolRealArray( 0, 1, -0.000139266, -0.000226796, 0.00053215, 7.45058e-08, 8.19564e-08, 7.63684e-08, 1, 1, 1, 1, 1.66667, 1, -0.000139266, -0.000226796, 0.00053215, 7.45058e-08, 8.19564e-08, 7.63684e-08, 1, 1, 1, 1 )
+tracks/10/type = "transform"
+tracks/10/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.012_07")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = PoolRealArray( 0, 1, -1.19209e-07, 8.9407e-08, 0, 4.47035e-08, 5.21541e-08, 4.47035e-08, 1, 1, 1, 1, 1.66667, 1, -1.19209e-07, 8.9407e-08, 0, 4.47035e-08, 5.21541e-08, 4.47035e-08, 1, 1, 1, 1 )
+tracks/11/type = "transform"
+tracks/11/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.001_01")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = PoolRealArray( 0, 1, -1.86265e-09, 0, 0, -4.86119e-20, 3.69582e-10, 1.31696e-10, 1, 1, 1, 1, 1.66667, 1, -1.86265e-09, 0, 0, -4.86119e-20, 3.69582e-10, 1.31696e-10, 1, 1, 1, 1 )
+tracks/12/type = "transform"
+tracks/12/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone_00")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = PoolRealArray( 0, 1, 7.45049e-08, -2.98023e-08, -2.68221e-07, -1.49012e-08, 9.01011e-10, 2.29107e-09, 1, 1, 1, 1, 1.66667, 1, 7.45049e-08, -2.98023e-08, -2.68221e-07, -1.49012e-08, 9.01011e-10, 2.29107e-09, 1, 1, 1, 1 )
+tracks/13/type = "transform"
+tracks/13/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.008_end_024")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = PoolRealArray( 0, 1, -1.19209e-07, 2.38419e-07, 0, 0, 0, 4.32365e-10, 1, 1, 1, 1, 1.66667, 1, -1.19209e-07, 2.38419e-07, 0, 0, 0, 4.32365e-10, 1, 1, 1, 1 )
+tracks/14/type = "transform"
+tracks/14/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.008_014")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = PoolRealArray( 0, 1, 0, 0, 5.96046e-08, -2.79175e-18, 8.35426e-10, 3.34172e-09, 1, 1, 1, 1, 0.0666667, 1, 0, -2.98023e-08, 2.98023e-08, 0.000764944, 0.000441302, 0.00126663, 0.999999, 1, 1, 1, 0.133333, 1, -1.90735e-07, -1.19209e-07, 2.98023e-08, 0.00607014, 0.00350191, 0.0100512, 0.999925, 1, 1, 1, 0.2, 1, 0, -2.98023e-08, 8.9407e-08, 0.0167454, 0.0096605, 0.0277275, 0.999429, 1, 1, 1, 0.333333, 1, -1.19209e-07, 0, 5.96046e-08, 0.0493792, 0.028487, 0.0817633, 0.99502, 1, 1, 1, 0.666667, 1, 0, 0, 0, 0.141521, 0.081644, 0.234334, 0.958329, 1, 1, 1, 0.733333, 1, -9.53673e-08, -2.98023e-08, -5.96046e-08, 0.152072, 0.0877309, 0.251804, 0.95172, 1, 1, 1, 0.8, 1, -1.43051e-07, -1.49012e-07, 1.19209e-07, 0.157961, 0.0911284, 0.261556, 0.947804, 1, 1, 1, 0.866667, 1, -2.38419e-07, -8.9407e-08, 1.49012e-07, 0.158054, 0.0911819, 0.26171, 0.947741, 1, 1, 1, 0.933333, 1, -1.90735e-07, -1.19209e-07, 1.19209e-07, 0.152712, 0.0881002, 0.252865, 0.951303, 1, 1, 1, 1, 1, 0, 2.98023e-08, 1.49012e-07, 0.143106, 0.0825582, 0.236958, 0.957369, 1, 1, 1, 1.33333, 1, -2.38419e-07, -1.49012e-07, -5.96046e-08, 0.0566293, 0.0326697, 0.0937683, 0.993445, 1, 1, 1, 1.46667, 1, -2.38419e-08, -2.08616e-07, 2.98023e-08, 0.0233284, 0.0134583, 0.0386278, 0.998891, 1, 1, 1, 1.53333, 1, -2.14577e-07, -8.9407e-08, 0, 0.0110695, 0.00638608, 0.0183293, 0.99975, 1, 1, 1, 1.6, 1, -7.15256e-08, -8.9407e-08, 8.9407e-08, 0.00313487, 0.00180855, 0.00519088, 0.99998, 1, 1, 1, 1.66667, 1, 0, 0, 5.96046e-08, -2.79175e-18, 8.35426e-10, 3.34172e-09, 1, 1, 1, 1 )
+tracks/15/type = "transform"
+tracks/15/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.007_013")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = PoolRealArray( 0, 1, -8.9407e-08, 0, 5.96046e-08, -2.98023e-08, 3.72529e-09, -2.98023e-08, 1, 1, 1, 1, 1.66667, 1, -8.9407e-08, 0, 5.96046e-08, -2.98023e-08, 3.72529e-09, -2.98023e-08, 1, 1, 1, 1 )
+tracks/16/type = "transform"
+tracks/16/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.006_012")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = PoolRealArray( 0, 1, 4.47035e-08, -2.98023e-08, 5.96046e-08, -8.19564e-08, -7.45058e-09, 0, 1, 1, 1, 1, 0.0666667, 1, 7.45058e-08, 1.19209e-07, 5.96046e-08, -0.000374263, 0.000381237, 0.000541249, 1, 1, 1, 1, 0.133333, 1, 1.49012e-08, 0, 0, -0.0032058, 0.00326647, 0.00463772, 0.999979, 1, 1, 1, 0.2, 1, 1.19209e-07, 5.96046e-08, -5.96046e-08, -0.00964581, 0.00982859, 0.0139546, 0.999808, 1, 1, 1, 0.266667, 1, 5.96046e-08, 3.27826e-07, 1.19209e-07, -0.0200465, 0.0204265, 0.0290015, 0.99917, 1, 1, 1, 0.333333, 1, 4.47035e-08, 2.98023e-08, 0, -0.0344153, 0.0350678, 0.0497893, 0.99755, 1, 1, 1, 0.4, 1, -2.98023e-08, -5.96046e-08, -1.78814e-07, -0.0538838, 0.0549055, 0.0779548, 0.993984, 1, 1, 1, 0.6, 1, 1.49012e-08, 1.19209e-07, 1.19209e-07, -0.131962, 0.134464, 0.190912, 0.963358, 1, 1, 1, 0.666667, 1, 4.47035e-08, 2.98023e-08, 0, -0.15638, 0.159345, 0.226239, 0.94814, 1, 1, 1, 0.733333, 1, 1.19209e-07, 5.96046e-08, 1.19209e-07, -0.174644, 0.177956, 0.252662, 0.934876, 1, 1, 1, 0.8, 1, 1.04308e-07, 5.96046e-08, 5.96046e-08, -0.185152, 0.188663, 0.267864, 0.926485, 1, 1, 1, 0.866667, 1, 2.98023e-08, 2.38419e-07, 1.78814e-07, -0.185914, 0.18944, 0.268967, 0.925854, 1, 1, 1, 0.933333, 1, 1.78814e-07, 2.38419e-07, 2.38419e-07, -0.179757, 0.183165, 0.260058, 0.930864, 1, 1, 1, 1, 1, 1.93715e-07, 3.27826e-07, 2.38419e-07, -0.168639, 0.171837, 0.243974, 0.93942, 1, 1, 1, 1.26667, 1, 2.98023e-08, -5.96046e-08, -1.19209e-07, -0.0894949, 0.0911919, 0.129474, 0.983316, 1, 1, 1, 1.46667, 1, 1.49012e-07, 1.49012e-07, 0, -0.0274827, 0.0280037, 0.0397597, 0.998439, 1, 1, 1, 1.53333, 1, 7.45058e-08, 0, 0, -0.0130223, 0.0132692, 0.0188395, 0.99965, 1, 1, 1, 1.6, 1, 1.3411e-07, 5.96046e-08, 1.19209e-07, -0.0036842, 0.00375399, 0.00532973, 0.999972, 1, 1, 1, 1.66667, 1, 4.47035e-08, -2.98023e-08, 5.96046e-08, -8.19564e-08, -7.45058e-09, 0, 1, 1, 1, 1 )
+tracks/17/type = "transform"
+tracks/17/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.005_011")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = PoolRealArray( 0, 1, -2.98023e-08, 0, -1.3411e-07, -2.98023e-08, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1, 0.0666667, 1, -2.98023e-08, 0, -1.3411e-07, 0.000108992, -0.00044551, -8.89635e-05, 1, 1, 1, 1, 0.133333, 1, -2.98023e-08, 0, -1.3411e-07, 0.000879602, -0.00359522, -0.000718215, 0.999993, 1, 1, 1, 0.2, 1, -2.98023e-08, 0, -1.3411e-07, 0.00247547, -0.0101181, -0.00202131, 0.999944, 1, 1, 1, 0.266667, 1, -2.98023e-08, 0, -1.3411e-07, 0.00478655, -0.0195645, -0.00390841, 0.99979, 1, 1, 1, 1.06667, 1, -2.98023e-08, 0, -1.3411e-07, 0.0489262, -0.199978, -0.03995, 0.977762, 1, 1, 1, 1.13333, 1, -2.98023e-08, 0, -1.3411e-07, 0.0507649, -0.207494, -0.0414514, 0.976038, 1, 1, 1, 1.2, 1, -2.98023e-08, 0, -1.3411e-07, 0.0518399, -0.211887, -0.0423291, 0.975, 1, 1, 1, 1.26667, 1, -2.98023e-08, 0, -1.3411e-07, 0.0515504, -0.210704, -0.0420927, 0.975282, 1, 1, 1, 1.33333, 1, -2.98023e-08, 0, -1.3411e-07, 0.0468098, -0.191328, -0.0382219, 0.979664, 1, 1, 1, 1.6, 1, -2.98023e-08, 0, -1.3411e-07, 0.00384425, -0.0157127, -0.00313889, 0.999864, 1, 1, 1, 1.66667, 1, -2.98023e-08, 0, -1.3411e-07, -2.98023e-08, -1.49012e-08, 7.45058e-09, 1, 1, 1, 1 )
+tracks/18/type = "transform"
+tracks/18/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.004_010")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = PoolRealArray( 0, 1, 2.08616e-07, 1.78814e-07, -1.49012e-07, -7.45058e-08, 2.98023e-08, 1.04308e-07, 1, 1, 1, 1, 1.66667, 1, 2.08616e-07, 1.78814e-07, -1.49012e-07, -7.45058e-08, 2.98023e-08, 1.04308e-07, 1, 1, 1, 1 )
+tracks/19/type = "transform"
+tracks/19/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.017_end_025")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = PoolRealArray( 0, 1, -5.96046e-08, -1.49012e-08, -1.78814e-07, 7.45058e-09, 7.72367e-10, 9.26846e-09, 1, 1, 1, 1, 1.66667, 1, -5.96046e-08, -1.49012e-08, -1.78814e-07, 7.45058e-09, 7.72367e-10, 9.26846e-09, 1, 1, 1, 1 )
+tracks/20/type = "transform"
+tracks/20/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.017_017")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = PoolRealArray( 0, 1, -5.59151e-08, 0.00857794, -0.0114418, -1.32244e-17, -4.7147e-09, -2.80495e-09, 1, 1, 1, 1, 1.66667, 1, -5.59151e-08, 0.00857794, -0.0114418, -1.32244e-17, -4.7147e-09, -2.80495e-09, 1, 1, 1, 1 )
+tracks/21/type = "transform"
+tracks/21/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.016_016")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = PoolRealArray( 0, 1, -0.00160387, 0.00216758, 0.0247105, -1.49012e-08, 5.08152e-09, -7.20927e-09, 1, 1, 1, 1, 0.0666667, 1, -0.00160387, 0.00216758, 0.0247105, 0.00143903, -0.000523202, 2.48218e-05, 0.999999, 1, 1, 1, 0.133333, 1, -0.00160387, 0.00216758, 0.0247105, 0.010691, -0.00388687, 0.000184311, 0.999935, 1, 1, 1, 0.333333, 1, -0.00160387, 0.00216758, 0.0247105, 0.0611278, -0.0222238, 0.00105382, 0.997882, 1, 1, 1, 0.4, 1, -0.00160387, 0.00216758, 0.0247105, 0.0689781, -0.0250778, 0.00118915, 0.997302, 1, 1, 1, 0.466667, 1, -0.00160387, 0.00216758, 0.0247105, 0.0695753, -0.0252949, 0.00119948, 0.997255, 1, 1, 1, 0.533333, 1, -0.00160387, 0.00216758, 0.0247105, 0.0681946, -0.024793, 0.00117567, 0.997363, 1, 1, 1, 0.6, 1, -0.00160387, 0.00216758, 0.0247105, 0.0658338, -0.0239347, 0.00113497, 0.997543, 1, 1, 1, 0.666667, 1, -0.00160387, 0.00216758, 0.0247105, 0.0626779, -0.0227873, 0.00108055, 0.997773, 1, 1, 1, 1.6, 1, -0.00160387, 0.00216758, 0.0247105, 0.000625822, -0.000227517, 1.0782e-05, 1, 1, 1, 1, 1.66667, 1, -0.00160387, 0.00216758, 0.0247105, -1.49012e-08, 5.08152e-09, -7.20927e-09, 1, 1, 1, 1 )
+tracks/22/type = "transform"
+tracks/22/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.015_015")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = PoolRealArray( 0, 1, -6.70552e-08, -6.85453e-07, 5.96046e-08, 5.96046e-08, -2.98023e-08, 7.45058e-09, 1, 1, 1, 1, 1.66667, 1, -6.70552e-08, -6.85453e-07, 5.96046e-08, 5.96046e-08, -2.98023e-08, 7.45058e-09, 1, 1, 1, 1 )
+tracks/23/type = "transform"
+tracks/23/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.020_end_026")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = PoolRealArray( 0, 1, -5.96046e-08, 1.49012e-08, 2.38419e-07, 7.45058e-09, -7.74463e-10, 3.09785e-09, 1, 1, 1, 1, 1.66667, 1, -5.96046e-08, 1.49012e-08, 2.38419e-07, 7.45058e-09, -7.74463e-10, 3.09785e-09, 1, 1, 1, 1 )
+tracks/24/type = "transform"
+tracks/24/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.020_020")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = PoolRealArray( 0, 1, -9.2629e-08, -0.00854778, 0.011464, 5.26878e-18, -1.97346e-09, 2.6698e-09, 1, 1, 1, 1, 1.66667, 1, -9.2629e-08, -0.00854778, 0.011464, 5.26878e-18, -1.97346e-09, 2.6698e-09, 1, 1, 1, 1 )
+tracks/25/type = "transform"
+tracks/25/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.019_019")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = PoolRealArray( 0, 1, 0.00160384, -0.00208998, -0.0247172, -1.49012e-08, -9.64755e-09, 1.43093e-08, 1, 1, 1, 1, 0.0666667, 1, 0.00160384, -0.00208998, -0.0247172, 0.00143912, -0.000523295, 2.31827e-05, 0.999999, 1, 1, 1, 0.133333, 1, 0.00160384, -0.00208998, -0.0247172, 0.0106911, -0.00388743, 0.000172079, 0.999935, 1, 1, 1, 0.333333, 1, 0.00160384, -0.00208998, -0.0247172, 0.0611277, -0.0222269, 0.000983887, 0.997882, 1, 1, 1, 0.4, 1, 0.00160384, -0.00208998, -0.0247172, 0.0689781, -0.0250814, 0.00111027, 0.997302, 1, 1, 1, 0.466667, 1, 0.00160384, -0.00208998, -0.0247172, 0.0695754, -0.0252986, 0.0011199, 0.997255, 1, 1, 1, 0.533333, 1, 0.00160384, -0.00208998, -0.0247172, 0.0681947, -0.0247966, 0.00109765, 0.997363, 1, 1, 1, 0.6, 1, 0.00160384, -0.00208998, -0.0247172, 0.0658339, -0.0239381, 0.00105966, 0.997543, 1, 1, 1, 0.666667, 1, 0.00160384, -0.00208998, -0.0247172, 0.0626779, -0.0227906, 0.00100886, 0.997773, 1, 1, 1, 1.6, 1, 0.00160384, -0.00208998, -0.0247172, 0.000625792, -0.000227534, 1.01032e-05, 1, 1, 1, 1, 1.66667, 1, 0.00160384, -0.00208998, -0.0247172, -1.49012e-08, -9.64755e-09, 1.43093e-08, 1, 1, 1, 1 )
+tracks/26/type = "transform"
+tracks/26/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:Bone.018_018")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = PoolRealArray( 0, 1, -1.49012e-08, -2.23517e-07, -5.96046e-07, 8.9407e-08, 1.86264e-08, 1.49012e-08, 1, 1, 1, 1, 1.66667, 1, -1.49012e-08, -2.23517e-07, -5.96046e-07, 8.9407e-08, 1.86264e-08, 1.49012e-08, 1, 1, 1, 1 )
+tracks/27/type = "transform"
+tracks/27/path = NodePath("cat_model_menu/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton:_rootJoint")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = PoolRealArray( 0, 1, 9.13701e-08, 9.32161e-09, -6.57611e-08, 0, 0, 0, 1, 1, 1, 1, 1.66667, 1, 9.13701e-08, 9.32161e-09, -6.57611e-08, 0, 0, 0, 1, 1, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=66]
+albedo_texture = ExtResource( 5 )
+uv1_scale = Vector3( 50, 50, 1 )
+
+[sub_resource type="CubeMesh" id=72]
+material = SubResource( 66 )
+size = Vector3( 600, 2, 500 )
+
+[sub_resource type="ConcavePolygonShape" id=73]
+data = PoolVector3Array( -500, 1, 500, 500, 1, 500, -500, -1, 500, 500, 1, 500, 500, -1, 500, -500, -1, 500, 500, 1, -500, -500, 1, -500, 500, -1, -500, -500, 1, -500, -500, -1, -500, 500, -1, -500, 500, 1, 500, 500, 1, -500, 500, -1, 500, 500, 1, -500, 500, -1, -500, 500, -1, 500, -500, 1, -500, -500, 1, 500, -500, -1, -500, -500, 1, 500, -500, -1, 500, -500, -1, -500, 500, 1, 500, -500, 1, 500, 500, 1, -500, -500, 1, 500, -500, 1, -500, 500, 1, -500, -500, -1, 500, 500, -1, 500, -500, -1, -500, 500, -1, 500, 500, -1, -500, -500, -1, -500 )
+
+[node name="MeowWorld" type="Spatial"]
+script = ExtResource( 8 )
+
+[node name="Environment" type="Spatial" parent="."]
+
+[node name="WorldEnvironment" parent="Environment" instance=ExtResource( 1 )]
+environment = ExtResource( 4 )
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Environment"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Viewport" type="Viewport" parent="Environment/ViewportContainer"]
+size = Vector2( 1024, 600 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Camera" type="Camera" parent="Environment/ViewportContainer/Viewport"]
+transform = Transform( -1, 2.26267e-08, -8.44439e-08, 2.26267e-08, 1, 2.98023e-08, 8.44439e-08, 2.98023e-08, -1, 0, 63, -60 )
+fov = 60.5
+far = 1000.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Environment/ViewportContainer/Viewport/Camera"]
+autoplay = "menucamera_anim"
+anims/RESET = SubResource( 67 )
+anims/menucamera_anim = SubResource( 68 )
+
+[node name="menu_scene" parent="Environment" instance=ExtResource( 2 )]
+transform = Transform( -2.99965, 0, 0.0456034, 0, 3, 0, -0.0456034, 0, -2.99965, 0, 42.837, 13.575 )
+
+[node name="cat_model_menu" parent="Environment/menu_scene" instance=ExtResource( 3 )]
+transform = Transform( 0.999545, 0, -0.0301722, 0, 1, 0, 0.0301722, 0, 0.999545, -0.0332768, 1.50609, -2.18892 )
+
+[node name="AnimationPlayer" parent="Environment/menu_scene/cat_model_menu" index="1"]
+anims/cat_lounge = SubResource( 69 )
+anims/cat_pose = SubResource( 70 )
+
+[node name="CatMenuAnimationPlayer" parent="Environment/menu_scene/cat_model_menu" index="2"]
+anims/cat_pose = SubResource( 71 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Environment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -184.308, 0 )
+mesh = SubResource( 72 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Environment/MeshInstance"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Environment/MeshInstance/StaticBody"]
+shape = SubResource( 73 )
+
+[node name="CassettePlayer" parent="." instance=ExtResource( 6 )]
+transform = Transform( -1.93185, 0, -0.517638, 0, 2, 0, 0.517638, 0, -1.93185, 21.9153, 46.6018, 10.163 )
+script = null
+
+[node name="TapeDisplayEnd" type="Spatial" parent="."]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 42.42, 2.4244 )
+
+[node name="cassette_track0" parent="TapeDisplayEnd" instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0.366016 )
+
+[node name="cassette_track1" parent="TapeDisplayEnd" instance=ExtResource( 7 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 8, 0, 1.19209e-07 )
+
+[node name="cassette_track2" parent="TapeDisplayEnd" instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.538259 )
+
+[node name="cassette_track3" parent="TapeDisplayEnd" instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0.366016 )
+
+[node name="cassette_track4" parent="TapeDisplayEnd" instance=ExtResource( 12 )]
+transform = Transform( 0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, 0.965926, -8, 0, 1.19209e-07 )
+
+[node name="Lord" parent="TapeDisplayEnd" instance=ExtResource( 13 )]
+transform = Transform( -0.938391, 0, 0.345577, 0, 1, 0, -0.345577, 0, -0.938391, -7.78489, 1.7201, 3.73485 )
+script = null
+
+[editable path="Environment/menu_scene/cat_model_menu"]

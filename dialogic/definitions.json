@@ -1,0 +1,79 @@
+{
+	"glossary": [
+
+	],
+	"variables": [
+		{
+			"id": "1743102701-648",
+			"name": "cp_power",
+			"type": 0,
+			"value": "1"
+		},
+		{
+			"id": "1743102740-366",
+			"name": "cp_track1",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1743102747-146",
+			"name": "cp_track2",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1743102752-918",
+			"name": "cp_track3",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1743102729-787",
+			"name": "cp_track0",
+			"type": 0,
+			"value": "1"
+		},
+		{
+			"id": "1753301231-648",
+			"name": "weeping_gargoyle",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1745503863-648",
+			"name": "gargoyle_score",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1709051878-648",
+			"name": "radio_handler",
+			"type": 0,
+			"value": "2"
+		},
+		{
+			"id": "1709066220-648",
+			"name": "find_urn",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1743464048-648",
+			"name": "cassette_score",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1754590829-648",
+			"name": "found_cassettes",
+			"type": 0,
+			"value": "0"
+		},
+		{
+			"id": "1753734430-451",
+			"name": "fort_mission",
+			"type": 0,
+			"value": "0"
+		}
+	]
+}

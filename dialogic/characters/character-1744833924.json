@@ -1,0 +1,21 @@
+{
+	"color": "#ffff99c9",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1744833924.json",
+	"mirror_portraits": false,
+	"name": "Funky Gargoyle",
+	"nickname": "Funky",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://addons/dialogic/Assets/funky_face.png"
+		}
+	],
+	"scale": 65,
+	"theme": ""
+}

@@ -1,0 +1,273 @@
+{
+	"events": [
+		{
+			"animation": "slide_in_right.gd",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": true
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"audio": "play",
+			"audio_bus": "Master",
+			"event_id": "dialogic_030",
+			"event_name": "AudioEvent",
+			"file": "res://src/sfx/one_shots/meow2.wav",
+			"volume": 0
+		},
+		{
+			"condition": "",
+			"definition": "1753734430-451",
+			"event_id": "dialogic_012",
+			"value": "0"
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah, this place looks familiar!\nBelieve it or not I was once invited to be a guest of honor at this Fortress of Memory once upon a time.\nThe Gargoyles were such splendid hosts! Way TOO much fun was had.\nMaybe some of my Master Tapes can be found around here?!"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1753734704",
+			"index": 0,
+			"name": "ask_lady1"
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Ask Lady Rhiannon:"
+		},
+		{
+			"choice": "Gargoyles?!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ah, yes, you've noticed we aren't alone in this Fortress of Memory!\nThe Gargoyles here are... eccentric but they all like to have a good time.\nI had the distinct pleasure of being guest of honor at the last Gargoyle Gala and it was great fun."
+		},
+		{
+			"definition": "1753734430-451",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"anchor_id": "anchor-1753734704",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Lord Fyodor?",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Pay no mind to Lord Fyodor over there, if you can, he's just being DRAMATIC!\nI hope you know that he IS a cat and can come down from that Sacrificial Tablet any time he wants!"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"condition": "",
+			"definition": "1753734430-451",
+			"event_id": "dialogic_012",
+			"value": "1"
+		},
+		{
+			"event_id": "dialogic_015",
+			"id": "anchor-1753364307",
+			"index": 0,
+			"name": "found_tapes"
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Have you found any additional Master Tapes to report to me?"
+		},
+		{
+			"choice": "I'm done",
+			"condition": ">=",
+			"definition": "1754590829-648",
+			"event_id": "dialogic_011",
+			"value": "3"
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Thank you so much, the Master Tapes are all here now."
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Are you finished playing in the Fortress of Memory?"
+		},
+		{
+			"choice": "Yes!",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "YAY! Hold on tight. It's going to be a bumpy ride and Lord Fyodor doesn't know how to fly the Hot Air Balloon!"
+		},
+		{
+			"change_scene": "res://src/gui/meow_world_slide.tscn",
+			"event_id": "dialogic_041"
+		},
+		{
+			"choice": "Not yet",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"choice": "Master Tape 2",
+			"condition": ">=",
+			"definition": "1743102747-146",
+			"event_id": "dialogic_011",
+			"value": "2"
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "SPLENDID!!!!! Take it over to the Cassette Player.\nThe Pretty Gargoyle says the tape is starting to wear out?!\nWell that's what they get for stashing it in an ice cold Coffin Cooler!"
+		},
+		{
+			"definition": "1754590829-648",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"definition": "1743464048-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "2"
+		},
+		{
+			"anchor_id": "anchor-1753364307",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Master Tape 3",
+			"condition": "",
+			"definition": "1743102752-918",
+			"event_id": "dialogic_011",
+			"value": "3"
+		},
+		{
+			"character": "character-1742312070.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "HUZZAH!!!!! Take it over to the Cassette Player.\nEwww, why is this tape so sticky?! \nThe Funky Gargoyle must've had nacho cheese dust on their claws when they used this tape."
+		},
+		{
+			"definition": "1754590829-648",
+			"event_id": "dialogic_014",
+			"operation": "+",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "1"
+		},
+		{
+			"definition": "1743464048-648",
+			"event_id": "dialogic_014",
+			"operation": "=",
+			"random_upper_limit": 100,
+			"set_random": false,
+			"set_value": "3"
+		},
+		{
+			"anchor_id": "anchor-1753364307",
+			"event_id": "dialogic_016"
+		},
+		{
+			"choice": "Not yet",
+			"condition": "<=",
+			"definition": "1743464048-648",
+			"event_id": "dialogic_011",
+			"value": "2"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_013"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 1
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5",
+		"file": "timeline-1745348974.json",
+		"name": "lady1"
+	}
+}
