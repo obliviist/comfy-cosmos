@@ -1,0 +1,21 @@
+{
+	"color": "#ff15b542",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1744834021.json",
+	"mirror_portraits": false,
+	"name": "Average Gargoyle",
+	"nickname": "Average",
+	"nickname_bool": true,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://addons/dialogic/Assets/average_face.png"
+		}
+	],
+	"scale": 65,
+	"theme": ""
+}

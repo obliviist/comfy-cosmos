@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/npcs_tscn/npc_lord.gd" type="Script" id=1]
+[ext_resource path="res://assets_raw/cc_raw_assets/cat_model_2.glb" type="PackedScene" id=2]
+[ext_resource path="res://assets/asset_anims/cat2_idle.tres" type="Animation" id=3]
+[ext_resource path="res://assets/asset_anims/cat2_lounge.tres" type="Animation" id=4]
+[ext_resource path="res://assets_raw/cc_raw_assets/cat_texture_2.material" type="Material" id=5]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 2.40888
+height = 2.96066
+
+[node name="Lord" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.896803, 0.442429, 0, -0.44243, 0.896803, 0.120113, 1.70078, 0.102265 )
+shape = SubResource( 1 )
+
+[node name="cat_model_2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0 )
+
+[node name="Object_7" parent="cat_model_2/cat_model_2/246e2b0a801a475bae2a0a2d9f264bcafbx/RootNode/Armature/Object_4/Skeleton" index="0"]
+material/0 = ExtResource( 5 )
+
+[node name="LordAnimationPlayer" type="AnimationPlayer" parent="cat_model_2"]
+autoplay = "cat2_idle"
+anims/cat2_idle = ExtResource( 3 )
+anims/cat2_lounge = ExtResource( 4 )
+
+[editable path="cat_model_2"]

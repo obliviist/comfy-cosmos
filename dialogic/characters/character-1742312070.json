@@ -1,0 +1,21 @@
+{
+	"color": "#ff15b542",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1742312070.json",
+	"mirror_portraits": false,
+	"name": "Lady Rhiannon",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 50,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://addons/dialogic/Assets/lady_face.png"
+		}
+	],
+	"scale": 85,
+	"theme": ""
+}

@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/gui/CC_theme.tres" type="Theme" id=1]
+[ext_resource path="res://src/gui/gameover_menu.gd" type="Script" id=2]
+[ext_resource path="res://src/gui/settings_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/gui/cc_gameover_splash_800x500.png" type="Texture" id=4]
+[ext_resource path="res://src/gui/cc_gameover_bg_1024x600.png" type="Texture" id=5]
+
+[node name="GameOver" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="BG" type="Sprite" parent="."]
+position = Vector2( 507, 296 )
+texture = ExtResource( 5 )
+
+[node name="Background" type="ColorRect" parent="BG"]
+margin_left = -507.0
+margin_top = -296.0
+margin_right = 517.0
+margin_bottom = 304.0
+color = Color( 1, 1, 1, 0 )
+
+[node name="Splash" type="Sprite" parent="BG/Background"]
+modulate = Color( 1, 0.6, 0.788235, 0.784314 )
+position = Vector2( 510, 299 )
+texture = ExtResource( 4 )
+
+[node name="CenterContainer" type="CenterContainer" parent="BG/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/Background/CenterContainer"]
+margin_left = 421.0
+margin_top = 184.0
+margin_right = 603.0
+margin_bottom = 415.0
+custom_constants/separation = 7
+
+[node name="GameOver" type="Label" parent="BG/Background/CenterContainer/VBoxContainer"]
+margin_right = 182.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 1, 0.6, 0.788235, 1 )
+text = "Game Over"
+align = 1
+valign = 1
+
+[node name="Result" type="Label" parent="BG/Background/CenterContainer/VBoxContainer"]
+visible = false
+margin_top = 43.0
+margin_right = 312.0
+margin_bottom = 79.0
+text = "You scored:  points"
+align = 1
+valign = 1
+
+[node name="Control" type="Control" parent="BG/Background/CenterContainer/VBoxContainer"]
+margin_top = 43.0
+margin_right = 182.0
+margin_bottom = 43.0
+
+[node name="RestartBtn" type="Button" parent="BG/Background/CenterContainer/VBoxContainer"]
+margin_top = 50.0
+margin_right = 182.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 40 )
+text = "Play Again"
+
+[node name="MenuBtn" type="Button" parent="BG/Background/CenterContainer/VBoxContainer"]
+margin_top = 97.0
+margin_right = 182.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 0, 40 )
+text = "Main Menu"
+
+[node name="SettingsBtn" type="Button" parent="BG/Background/CenterContainer/VBoxContainer"]
+margin_top = 144.0
+margin_right = 182.0
+margin_bottom = 184.0
+rect_min_size = Vector2( 0, 40 )
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="BG/Background/CenterContainer/VBoxContainer"]
+margin_top = 191.0
+margin_right = 182.0
+margin_bottom = 231.0
+rect_min_size = Vector2( 0, 40 )
+text = "Quit"
+
+[node name="SettingsMenu" parent="." instance=ExtResource( 3 )]
+
+[connection signal="pressed" from="BG/Background/CenterContainer/VBoxContainer/RestartBtn" to="." method="_on_RestartBtn_pressed"]
+[connection signal="pressed" from="BG/Background/CenterContainer/VBoxContainer/MenuBtn" to="." method="_on_MenuBtn_pressed"]
+[connection signal="pressed" from="BG/Background/CenterContainer/VBoxContainer/SettingsBtn" to="." method="_on_SettingsBtn_pressed"]
+[connection signal="pressed" from="BG/Background/CenterContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]

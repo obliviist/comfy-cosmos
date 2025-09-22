@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Synth-Sinsadhigher.wav-be43bcbc55cc08e65a08967d557b95a5.sample"
+
+[deps]
+
+source_file="res://src/sfx/one_shots/Synth-Sinsadhigher.wav"
+dest_files=[ "res://.import/Synth-Sinsadhigher.wav-be43bcbc55cc08e65a08967d557b95a5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+{
+	"color": "#ffee8434",
+	"description": "",
+	"display_name": "",
+	"display_name_bool": false,
+	"id": "character-1742319904.json",
+	"mirror_portraits": false,
+	"name": "Lord Fyodor",
+	"nickname": "",
+	"nickname_bool": false,
+	"offset_x": 50,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": "res://addons/dialogic/Assets/lord_face.png"
+		}
+	],
+	"scale": 85,
+	"theme": ""
+}

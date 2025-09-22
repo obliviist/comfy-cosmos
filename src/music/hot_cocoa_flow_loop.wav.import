@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hot_cocoa_flow_loop.wav-09521739267cd5a1c43740fb65d62ee9.sample"
+
+[deps]
+
+source_file="res://src/music/hot_cocoa_flow_loop.wav"
+dest_files=[ "res://.import/hot_cocoa_flow_loop.wav-09521739267cd5a1c43740fb65d62ee9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0
