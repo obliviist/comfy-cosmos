@@ -1,6 +1,0 @@
-[gd_scene format=2]
-
-[node name="Amb" type="AudioStreamPlayer"]
-volume_db = -16.89
-pitch_scale = 0.75
-bus = "Amb"

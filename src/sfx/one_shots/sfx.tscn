@@ -1,5 +1,0 @@
-[gd_scene format=2]
-
-[node name="Sfx" type="AudioStreamPlayer"]
-volume_db = -2.261
-bus = "Sfx"
